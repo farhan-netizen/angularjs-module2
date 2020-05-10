@@ -10,10 +10,10 @@
     function ToBuyController(ShoppingListCheckOffService) {
       var showList = this;
       showList.items = ShoppingListCheckOffService.getItems();
-    //   showList.removeItem = ShoppingListCheckOffService.removeItem();
+  
       showList.removeItem = function(index) {
           ShoppingListCheckOffService.addItem(index)
-          // showList.removeItem = ShoppingListCheckOffService.addItem(index);
+          
       }
     }
 
@@ -36,20 +36,15 @@
           name: to_buy[index].name,
           quantity: to_buy[index].quantity
         }        
-        baught.push(item)
-        console.log(baught);
+        baught.push(item)        
         to_buy.splice(index, 1);
-
         service.buyItems()
-
         return to_buy
       }
       service.getItems = function () {
-        console.log(to_buy);        
         return to_buy;
       };
-      service.buyItems = function () {
-        console.log(baught);
+      service.buyItems = function () {   
         return baught
       }
     }
